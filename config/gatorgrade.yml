@@ -1,0 +1,270 @@
+setup: |
+  echo "🐊 Start to install dependencies ..."
+  echo "🐊 Note: Will not install dependencies if available"
+  cd objectprocessor && poetry install
+  echo "🐊 ... Done installing dependencies"
+---
+
+# Checks on Files {{{
+
+# perform checks on a file
+- objectprocessor/objectprocessor/__init__.py:
+    - description: Ensure that the __init__.py file exists in the objectprocessor/objectprocessor/ directory
+      check: ConfirmFileExists
+
+# perform checks on a file
+- objectprocessor/tests/__init__.py:
+    - description: Ensure that the __init__.py file exists in the objectprocessor/tests/ directory
+      check: ConfirmFileExists
+
+# perform checks on a file
+- objectprocessor/objectprocessor/main.py:
+    - description: Ensure that the main.py file exists in the objectprocessor/objectprocessor/ directory
+      check: ConfirmFileExists
+    - description: Complete all TODOs, remove the TODO markers, and rewrite comments for main.py
+      check: MatchFileFragment
+      options:
+        fragment: TODO
+        count: 0
+        exact: true
+    - description: Create a sufficient number of docstring (i.e., multiple-line) comments in main.py
+      check: CountMultipleLineComments
+      options:
+        language: "Python"
+        count: 3
+        exact: false
+    - description: Create a sufficient number of single-line comments in main.py
+      check: CountSingleLineComments
+      options:
+        language: "Python"
+        count: 5
+        exact: false
+
+# perform checks on a file
+- objectprocessor/objectprocessor/approach.py:
+    - description: Ensure that the approach.py file exists in the objectprocessor/objectprocessor/ directory
+      check: ConfirmFileExists
+    - description: Complete all TODOs, remove the TODO markers, and rewrite comments for approach.py
+      check: MatchFileFragment
+      options:
+        fragment: TODO
+        count: 0
+        exact: true
+    - description: Create a sufficient number of docstring (i.e., multiple-line) comments in approach.py
+      check: CountMultipleLineComments
+      options:
+        language: "Python"
+        count: 3
+        exact: false
+
+# perform checks on a file
+- objectprocessor/objectprocessor/constants.py:
+    - description: Ensure that the constants.py file exists in the objectprocessor/objectprocessor/ directory
+      check: ConfirmFileExists
+    - description: Complete all TODOs, remove the TODO markers, and rewrite comments for constants.py
+      check: MatchFileFragment
+      options:
+        fragment: TODO
+        count: 0
+        exact: true
+    - description: Create a sufficient number of docstring (i.e., multiple-line) comments in constants.py
+      check: CountMultipleLineComments
+      options:
+        language: "Python"
+        count: 3
+        exact: false
+
+# perform checks on a file
+- objectprocessor/objectprocessor/person.py:
+    - description: Ensure that the person.py file exists in the objectprocessor/objectprocessor/ directory
+      check: ConfirmFileExists
+    - description: Complete all TODOs, remove the TODO markers, and rewrite comments for person.py
+      check: MatchFileFragment
+      options:
+        fragment: TODO
+        count: 0
+        exact: true
+    - description: Reference an attribute inside of the Person class
+      check: MatchFileFragment
+      options:
+        fragment: "self.name"
+        count: 3
+        exact: false
+    - description: Create a sufficient number of docstring (i.e., multiple-line) comments in person.py
+      check: CountMultipleLineComments
+      options:
+        language: "Python"
+        count: 5
+        exact: false
+    - description: Create a sufficient number of single-line comments in person.py
+      check: CountSingleLineComments
+      options:
+        language: "Python"
+        count: 3
+        exact: false
+
+# perform checks on a file
+- objectprocessor/objectprocessor/process.py:
+    - description: Ensure that the process.py file exists in the objectprocessor/objectprocessor/ directory
+      check: ConfirmFileExists
+    - description: Complete all TODOs, remove the TODO markers, and rewrite comments for process.py
+      check: MatchFileFragment
+      options:
+        fragment: TODO
+        count: 0
+        exact: true
+    - description: Define and reference a FUZZY_MATCH_THRESHOLD variable inside of the process.py file
+      check: MatchFileFragment
+      options:
+        fragment: FUZZY_MATCH_THRESHOLD
+        count: 6
+        exact: false
+    - description: Define the is_matching_person function inside of the process.py file
+      check: MatchFileFragment
+      options:
+        fragment: def is_matching_person(
+        count: 1
+        exact: true
+    - description: Define the is_matching_person_containment function inside of the process.py file
+      check: MatchFileFragment
+      options:
+        fragment: def is_matching_person_containment(
+        count: 1
+        exact: true
+    - description: Define the is_matching_person_equality function inside of the process.py file
+      check: MatchFileFragment
+      options:
+        fragment: def is_matching_person_equality(
+        count: 1
+        exact: true
+    - description: Define the is_matching_person_fuzzy function inside of the process.py file
+      check: MatchFileFragment
+      options:
+        fragment: def is_matching_person_fuzzy(
+        count: 1
+        exact: true
+    - description: Reference the name of the current module to create an input to the getattr function
+      check: MatchFileFragment
+      options:
+        fragment: "sys.modules[__name__]"
+        count: 2
+        exact: false
+    - description: Use the getattr function in the process.py file to call a function through its name as a string
+      check: MatchFileFragment
+      options:
+        fragment: "getattr("
+        count: 2
+        exact: false
+    - description: Create a sufficient number of docstring (i.e., multiple-line) comments in process.py
+      check: CountMultipleLineComments
+      options:
+        language: "Python"
+        count: 8
+        exact: false
+    - description: Create a sufficient number of single-line comments in process.py
+      check: CountSingleLineComments
+      options:
+        language: "Python"
+        count: 25
+        exact: false
+
+# perform checks on a file
+- writing/reflection.md:
+    - description: Ensure that the reflection.md file exists in the writing/ directory
+      check: ConfirmFileExists
+    - description: Complete all TODOs, remove the TODO markers, and rewrite comments for the reflection
+      check: MatchFileFragment
+      options:
+        fragment: TODO
+        count: 0
+        exact: true
+    - description: Delete the 'Add Your Name Here' prompt in the reflection file
+      check: MatchFileFragment
+      options:
+        fragment: "Add Your Name Here"
+        count: 0
+        exact: true
+    - description: Retype the every word in the Honor Code pledge in reflection.md
+      check: MatchFileFragment
+      options:
+        fragment: "I adhered to the Allegheny College Honor Code while completing this project."
+        count: 3
+        exact: true
+    - description: Confirm that the markdown file has the correct number of headers
+      check: CountMarkdownTags
+      options:
+        tag: heading
+        count: 27
+        exact: false
+    - description: Confirm that the markdown file has the correct number of fenced code blocks
+      check: CountMarkdownTags
+      options:
+        tag: code_block
+        count: 10
+        exact: false
+    - description: Confirm that the markdown file has the correct number of research questions
+      check: MatchFileFragment
+      options:
+        fragment: "RQ"
+        count: 3
+        exact: false
+
+# }}}
+
+# Check Output {{{
+
+# run a check
+- description: Pass the checks in the test suite
+  command: cd objectprocessor && poetry run task test
+
+# run a check
+- description: Pass the coverage minimum checks for the tests
+  command: cd objectprocessor && poetry run task coverage
+
+# run a check
+- description: Pass the source code formatting checks run by ruff
+  command: cd objectprocessor && poetry run task format
+
+# run a check
+- description: Pass the source code linting checks run by ruff
+  command: cd objectprocessor && poetry run task check
+
+# run a check
+- description: Pass the linting checks run by mypy
+  command: cd objectprocessor && poetry run task mypy
+
+# run a check
+- description: Pass the linting checks run by pymarkdown
+  command: cd objectprocessor && poetry run task markdownlint
+
+# run a check
+- description: Pass the undocumented function checks run by symbex
+  command: cd objectprocessor && poetry run task symbex-documented
+
+# run a check
+- description: Pass the untyped function checks run by symbex
+  command: cd objectprocessor && poetry run task symbex-typed
+
+# }}}
+
+# Program Output {{{
+
+# run the program and confirm correct number of lines in the output
+- description: Run the program and confirm the correct number of non-blank lines in the output, using simple search
+  check: CountCommandOutput
+  options:
+    command: 'cd objectprocessor && poetry run objectprocessor --search-term john79 --attribute email --input-file input/people.txt --output-file output/people.txt'
+    count: 7
+    exact: false
+
+# }}}
+
+# Commits {{{
+
+# count number of commits in the GitHub repository
+- description: Have at least a specific minimum of commits in repository
+  check: CountCommits
+  options:
+    count: 10
+
+# }}}
