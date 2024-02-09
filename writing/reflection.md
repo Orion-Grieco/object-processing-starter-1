@@ -38,7 +38,7 @@
 
 ## Re-type the sentence "I adhered to the Allegheny College Honor Code while completing this project."
 
-TODO: You must retype the sentence here in order to digitally sign your pledge.
+PLACEHOLDER: You must retype the sentence here in order to digitally sign your pledge.
 
 **IMPORTANT:** If you do not type the required sentence then the course
 instructor will not know that you adhered to the Allegheny College Honor Code
@@ -62,11 +62,11 @@ output
 
 ### Use two fenced code blocks to provide output from five different runs of `objectprocessor` with five different inputs
 
-TODO: Provide the complete command-line for your use of the `objectprocessor` program
+PLACEHOLDER: Provide the complete command-line for your use of the `objectprocessor` program
 
 #### Provide the command the output for the first run of the `objectprocessor`
 
-TODO: Provide your own example of a command and the output that it produces
+PLACEHOLDER: Provide your own example of a command and the output that it produces
 
 - `command`
 
@@ -76,7 +76,7 @@ output
 
 #### Provide the command the output for the second run of the `objectprocessor`
 
-TODO: Provide your own example of a command and the output that it produces
+PLACEHOLDER: Provide your own example of a command and the output that it produces
 
 - `command`
 
@@ -86,7 +86,7 @@ output
 
 #### Provide the command the output for the third run of the `objectprocessor`
 
-TODO: Provide your own example of a command and the output that it produces
+PLACEHOLDER: Provide your own example of a command and the output that it produces
 
 - `command`
 
@@ -96,7 +96,7 @@ output
 
 #### Provide the command the output for the fourth run of the `objectprocessor`
 
-TODO: Provide your own example of a command and the output that it produces
+PLACEHOLDER: Provide your own example of a command and the output that it produces
 
 - `command`
 
@@ -106,7 +106,7 @@ output
 
 #### Provide the command the output for the fifth run of the `objectprocessor`
 
-TODO: Provide your own example of a command and the output that it produces
+PLACEHOLDER: Provide your own example of a command and the output that it produces
 
 - `command`
 
@@ -116,7 +116,7 @@ output
 
 ## Experiment Design
 
-TODO: Describe your design of the `objectprocessor` experiment that answers
+PLACEHOLDER: Describe your design of the `objectprocessor` experiment that answers
 your own research questions (as specified in the next subsection), focusing on
 these key issues:
 
@@ -132,7 +132,7 @@ all the details about each matching instance of the `Person` class.
 - **Search time**: the time overhead associated with searching for a specified
 search term using the various approaches for string comparison.
 
-TODO: The **Search time** is a critical part of the experiment and, as you study it,
+PLACEHOLDER: The **Search time** is a critical part of the experiment and, as you study it,
 please make sure that you consider the following key issues:
 
 - The search term that will control whether or not a specific attribute of the
@@ -144,25 +144,25 @@ technique provided by the `rapidfuzz` library.
 - If the fuzzy-matching technique is chosen, then which specific algorithm
 provided by `rapidfuzz` should perform the matching, like `fuzz.ratio`.
 
-TODO: You must justify every part of your experiment design and then furnish
+PLACEHOLDER: You must justify every part of your experiment design and then furnish
 output examples to demonstrate that your program generates correct data!
 
 ## Research Questions
 
-TODO: Clearly state at least three research questions that you want to ask and
+PLACEHOLDER: Clearly state at least three research questions that you want to ask and
 answer by using the `objectprocessor` program. You should provide the research
 questions in a list that starts with "RQ" and ends with a question mark.
 
-- TODO: State your first research question
-- TODO: State your second research question
-- TODO: State your third research question
+- PLACEHOLDER: State your first research question
+- PLACEHOLDER: State your second research question
+- PLACEHOLDER: State your third research question
 
-TODO: Although the statement of three research questions is required for the
+PLACEHOLDER: Although the statement of three research questions is required for the
 baseline associated with this project, you may need to state and answer
 additional questions in order to develop a full-featured understanding of the
 performance trade-offs evident through the use of the `objectprocessor`.
 
-TODO: You must add instrumentation using tools like `timeit` to ensure that the
+PLACEHOLDER: You must add instrumentation using tools like `timeit` to ensure that the
 `objectprocessor` calculates and reports the time overhead data that you will
 need to answer your research questions. Before you conduct your experiments,
 please carefully confirm that `objectprocessor` calculates and reports the time
@@ -170,7 +170,7 @@ overhead values in a correct fashion.
 
 ## Data Tables
 
-TODO: Use Markdown to provide one or more data tables that summarize the results
+PLACEHOLDER: Use Markdown to provide one or more data tables that summarize the results
 from running the `objectprocessor` program in different configurations. You
 should provide enough data tables and output values to ensure that you can
 answer all of your research questions and, if possible, use the empirical
@@ -179,22 +179,22 @@ algorithms that you studied in this algorithm engineering project.
 
 ## Performance Analysis
 
-TODO: Provide at least three paragraphs that explain which algorithms inside of
+PLACEHOLDER: Provide at least three paragraphs that explain which algorithms inside of
 the `objectprocessor` are the fastest, by how much they are faster, and how you
 knew that the algorithm was faster, referencing the data in the aforementioned
 command outputs and the data tables to support your response. You should make
 sure that you answer each of the at least three research questions that you
 posed in a previous section of this report.
 
-TODO: Make sure that your responses explain WHY certain configurations are faster!
+PLACEHOLDER: Make sure that your responses explain WHY certain configurations are faster!
 
-TODO: It is not sufficient to ONLY explain WHICH configuration is faster!
+PLACEHOLDER: It is not sufficient to ONLY explain WHICH configuration is faster!
 
 ## Source Code
 
 ### Describe in detail the operation of the `PersonAttributes` declaration
 
-TODO: Provide a description of each line in the following source code
+PLACEHOLDER: Provide a description of each line in the following source code
 
 ```python
 @dataclass(frozen=True)
@@ -210,7 +210,7 @@ class PersonAttributes:
 
 ### Describe in detail the operating of the `PersonAttributes` method call
 
-TODO: Provide a description of each line in the following source code
+PLACEHOLDER: Provide a description of each line in the following source code
 
 ```python
 person_attributes = PersonAttributes(
@@ -224,7 +224,7 @@ person_attributes = PersonAttributes(
 
 ### Describe in detail how the provided source code works
 
-TODO: Provide a description of each line in the following source code
+PLACEHOLDER: Provide a description of each line in the following source code
 
 ```python
 def __init__(
@@ -242,19 +242,19 @@ def __init__(
 
 ### What are the benefits and drawbacks of object-oriented programming in Python?
 
-TODO: Provide a one-paragraph response that answers this question in your own words.
+PLACEHOLDER: Provide a one-paragraph response that answers this question in your own words.
 
 ### What is challenging about designing an experiment to evaluate the performance of object processing?
 
-TODO: Provide a one-paragraph response that answers this question in your own words.
+PLACEHOLDER: Provide a one-paragraph response that answers this question in your own words.
 
 ### How do the empirical results suggest that you don't yet know the entire story about the performance of object processing?
 
-TODO: Provide a one-paragraph response that answers this question in your own words.
+PLACEHOLDER: Provide a one-paragraph response that answers this question in your own words.
 
 ## Take Home Points
 
-TODO: Provide a two to three sentence statement about the key takeaways from
+PLACEHOLDER: Provide a two to three sentence statement about the key takeaways from
 conducting this experiment. Please note that the course instructor will display
 some student takeaways on the course web site and use them to facilitate
 follow-on class discussions.

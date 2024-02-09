@@ -37,7 +37,7 @@ class Person:
 
     def __init__(
         self, name: str, country: str, phone_number: str, job: str, email: str
-    ) -> None:
+    ) -> None: #type:ignore
         """Define the constructor for a person."""
         self.name = name
         self.country = country

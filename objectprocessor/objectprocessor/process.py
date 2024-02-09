@@ -1,7 +1,5 @@
 """Extract and save the data about the person from the CSV file."""
 
-import csv
-import sys
 from typing import List
 
 from rapidfuzz import fuzz
@@ -24,66 +22,78 @@ FUZZY_MATCH_THRESHOLD = 90
 
 def extract_person_data(data: str) -> List[person.Person]:
     """Extract a specified data column from the provided textual contents."""
-    # create an empty list of the data
-    # note that the data file:
-    # --> contains five columns
-    # --> each of which contains textual data with a different meaning
     data_list = []
-    # TODO: refer to the file called input/people.txt to learn more about
-    # the format of the comma separated value (CSV) file that we must parse;
-    # iterate through each line of the file and extract all relevant details
-    # use the csv.reader to accomplish the task of parsing the CSV file
-    # --> extract each of the attributes about a person from the line variable
-    # --> construct a new instance of the Person class that contains all
-    # of the attributes that were extracted from the CSV file
-    # --> append the current instance of the person class to the data_list variable
-    # return the list of all of the specified column
+    for line in csv.reader(
+        data.splitlines(),  # type: ignore
+        quotechar='"',
+        delimiter=",",
+        quoting=csv.QUOTE_ALL,
+        skipinitialspace=True,
+    ):
+        current_name = line[person.person_index.Name]  # line[0]
+        current_country = line[person.person_index.Country]  # line[1]
+        current_phone_number = line[person.person_index.Phone_Number]  # line[2]
+        current_job = line[person.person_index.Job]  # line[3]
+        current_email = line[person.person_index.Email]  # line[4]
+        new_person = person.Person(
+            current_name,
+            current_country,
+            current_phone_number,
+            current_job,
+            current_email,
+        )
+        data_list.append(new_person)
     return data_list
 
 
-def write_person_data(
-    file_name: str, person_data: List[person.Person]
-) -> None:
+def write_person_data(file_name: str, person_data: List[person.Person]) -> None:  # type: ignore
     """Write the person data stored in a list to the specified file."""
-    # create an empty list that will store the person data as a list of strings
     converted_person_data = []
-    # TODO: iterate through every person inside of the person_data list
-    # --> create a list out of this person where each of the person's
-    # attributes are stored inside of an index in the list
-    # --> append this converted person list to the list called converted_person_data
-    # --> use the csv.writer approach and the writerows function to write out
-    # the list of lists of strings that contain all of the person data
-
+    for client in person_data:
+        converted_list = [
+            client.name,
+            client.country,
+            client.phone_number,
+            client.job,
+            client.email,
+        ]
+        converted_person_data.append(converted_list)
+    with open(file_name, "w+", newline="") as file:
+        writer = csv.writer(file, delimiter=",")
+        writer.writerows(converted_person_data)
 
 def find_matching_people(
-    attribute: str,
-    match: str,
-    person_data: List[person.Person],
-    find_approach: approach.SearchApproach = approach.SearchApproach.containment,
+    attribute: str, match: str, person_data: List[person.Person]
 ) -> List[person.Person]:
     """Find people who have matching data for a specified attribute."""
-    # create an empty list of people who have an attribute matching the search term in match
     matching_people_list = []
-    # TODO: iterate through all of the people in the person_data list
-    # --> the current person has an attribute that contains the search term in match
-    # --> add the current person to the matching_person_list
-    # return the matching_person_list
+    for people in person_data:
+        # print(is_matching_person(attribute, match, people))
+        # print(attribute, match, person_data)
+        if is_matching_person(attribute, match, people) is True:
+            matching_people_list.append(people)
     return matching_people_list
 
 
 def is_matching_person(
-    attribute: str,
-    match: str,
-    search_person: person.Person,
-    find_approach: approach.SearchApproach,
+    attribute: str, match: str, search_person: person.Person
 ) -> bool:
-    """Dispatch to determine if the person's specified attribute contains the search term in match."""
-    # TODO: use the attr approach to build up a function call based on
-    # --> TODO: The string that is stored inside of the find_approach variable;
-    # make sure that it is calling the function in this module.
-    # Use one of the two standard, non-fuzzy functions
-    # --> TODO: Call the function that was built up and return its result
-    # Call the general-purpose fuzzy matching function
+    """Determine if the person's specified attribute contains the search term in match."""
+    if attribute == "name":
+        if match in search_person.name:
+            return True
+    elif attribute == "country":
+        if match in search_person.country:
+            return True
+    elif attribute == "phone_number":
+        if match in search_person.phone_number:
+            return True
+    elif attribute == "job":
+        if match in search_person.job:
+            return True
+    elif attribute == "email":
+        if match in search_person.email:
+            return True
     return False
 
 
