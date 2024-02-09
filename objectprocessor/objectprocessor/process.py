@@ -1,4 +1,5 @@
 """Extract and save the data about the person from the CSV file."""
+import csv
 
 from typing import List
 
